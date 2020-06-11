@@ -1,0 +1,57 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Wabatech application",
+        "description": " wabatech Application API"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/candidates/profile": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get user profile ",
+                "description": "Get User profile",
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Select language type",
+                        "enum": [
+                            "en",
+                            "ja"
+                        ]
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User found successfully.",
+                        "schema": {}
+                    }
+                }
+            }
+        }
+    }
+}
