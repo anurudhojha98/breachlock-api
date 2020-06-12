@@ -3,5 +3,7 @@ module.exports = {
     BODY_PARSER_LIMIT: '50mb',
     NODE_PORT: 3000,
     ORIGIN_URL: '*',
-    OPTION_SUCCESS_STATUS: 200
+    OPTION_SUCCESS_STATUS: 200,
+    SECRET_KEY: 'secretkey1234#1234',
+    EXPIRES_IN: '12h',
 }

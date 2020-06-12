@@ -28,6 +28,7 @@ models.sequelize
     .catch(err => {
         console.log(err, msg.DB_CONNECTION_ERR);
     });
+require("./routes/AuthRoutes")(app, router);
 const options = { customCss: constant.SWAGGER_CSS };
 app.use(path.API_DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 app.listen(PORT, () => {

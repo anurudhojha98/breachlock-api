@@ -1,16 +1,17 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const config = require('../config/config');
 module.exports = {
   generateToken(user) {
-    let payload = { id: user.id, userType: user.userType };
-    let token = jwt.sign(payload, process.env.SECRET_KEY, {
-      expiresIn: process.env.EXPIRES_IN
+    let payload = { id: user.id };
+    let token = jwt.sign(payload, config.SECRET_KEY, {
+      expiresIn: config.EXPIRES_IN
     });
     return token;
   },
   async isPasswordMatch(currentPassword, actualPassword) {
     return await new Promise((resolve, reject) => {
-      isPasswordMatch = false;
+      let isPasswordMatch = false;
       bcrypt.compare(currentPassword, actualPassword, (err, isMatched) => {
         if (err) reject(err);
         if (!isMatched) {
