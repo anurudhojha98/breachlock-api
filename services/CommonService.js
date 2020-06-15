@@ -8,25 +8,25 @@ module.exports = {
         switch (dataType) {
             case constants.SERVING_TYPE:
                 let servingTypeData = fs.readFileSync(path.SERVING_TYPE_JSON);
-                returnedData = JSON.parse(servingTypeData);
+                returnedData = servingTypeData;
                 break;
             case constants.AGE_GROUP:
                 let populationData = fs.readFileSync(path.AGE_GROUP_JSON);
-                returnedData = JSON.parse(populationData);
+                returnedData = populationData;
                 break;
             case constants.FOOD_CATEGORY:
                 let foodCategoryData = fs.readFileSync(path.FOOD_CATEGORY_JSON);
-                returnedData = JSON.parse(foodCategoryData);
+                returnedData = foodCategoryData;
                 break;
             case constants.SERVING_SIZE:
                 let servingSizeData = fs.readFileSync(path.SERVING_SIZE_JSON);
-                returnedData = JSON.parse(servingSizeData);
+                returnedData = servingSizeData;
                 break;
             default:
                 returnedData = []
                 break;
         }
-        return returnedData;
+        return JSON.parse(returnedData);
     }
 }
 
