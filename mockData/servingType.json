@@ -1,0 +1,26 @@
+[
+    {
+        "servingType": "Capsule"
+    },
+    {
+        "servingType": "Tablet"
+    },
+    {
+        "servingType": "Syrup"
+    },
+    {
+        "servingType": "Liquid"
+    },
+    {
+        "servingType": "Powder"
+    },
+    {
+        "servingType": "Granules"
+    },
+    {
+        "servingType": "Gel"
+    },
+    {
+        "servingType": "Jelly"
+    }
+]

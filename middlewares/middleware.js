@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const constants = require('../common/constants');
 const msg = require('../common/messages');
 var httpStatus = require('http-status-codes');
+const config = require('../config/config');
 module.exports = {
     isAuthenticated(req, res, next) {
         if (typeof req.headers.authorization !== constants.UNDEFINED) {
@@ -11,7 +12,7 @@ module.exports = {
                 token = token.slice(7, token.length);
             }
             if (token) {
-                jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+                jwt.verify(token, config.SECRET_KEY, (err, decoded) => {
                     if (err) {
                         return res.status(httpStatus.UNAUTHORIZED).json({
                             success: false,

@@ -1,0 +1,62 @@
+[
+    {
+        "ageGroup": "Men"
+    },
+    {
+        "ageGroup": "Men Sedentary Work"
+    },
+    {
+        "ageGroup": "Men Moderate Work"
+    },
+    {
+        "ageGroup": "Men Heavy Work"
+    },
+    {
+        "ageGroup": "Women"
+    },
+    {
+        "ageGroup": "Women Sedentary Work"
+    },
+    {
+        "ageGroup": "Women Moderate Work"
+    },
+    {
+        "ageGroup": "Women Heavy Work"
+    },
+    {
+        "ageGroup": "Women Pregnant"
+    },
+    {
+        "ageGroup": "Women Lactating 0-6 months"
+    },
+    {
+        "ageGroup": "Women Lactating 6-12 months"
+    },
+    {
+        "ageGroup": "Children 1-3 Years"
+    },
+    {
+        "ageGroup": "Children 4-6 Years"
+    },
+    {
+        "ageGroup": "Children 7-9 Years"
+    },
+    {
+        "ageGroup": "Boys 10-12 Years"
+    },
+    {
+        "ageGroup": "Boys 13-15 Years"
+    },
+    {
+        "ageGroup": "Boys 16-17 Years"
+    },
+    {
+        "ageGroup": "Girls 10-12 Years"
+    },
+    {
+        "ageGroup": "Girls 13-15 Years"
+    },
+    {
+        "ageGroup": "Girls 16-17 Years"
+    }
+]

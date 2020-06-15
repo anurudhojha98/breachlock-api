@@ -17,14 +17,14 @@ module.exports = {
                     )
                 }
             }).catch((err) => {
-                logger.error(err);
+                logger.error(err.message);
                 return res.status(httpStatus.OK).json({
                     success: false,
                     message: msg.ERR_IN_FETCH_DETAILS
                 })
             });
         } catch (err) {
-            logger.error(err);
+            logger.error(err.message);
             return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
                 success: false,
                 message: msg.INTERNAL_SERVER_ERR

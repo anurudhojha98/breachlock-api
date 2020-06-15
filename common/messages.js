@@ -9,5 +9,6 @@ module.exports = {
     ERR_IN_FETCH_DETAILS: 'Error in fetch details.',
     INTERNAL_SERVER_ERR: 'Internal server error.',
     INVALID_EMAIL_PASSWORD: 'Email or password is not valid.',
-    INVALID_PASSWORD: 'Password is not valid.'
+    INVALID_PASSWORD: 'Password is not valid.',
+    GET_AUTOCOMPLETE_DATA_SUCCESS: 'Data found successfully.'
 }
