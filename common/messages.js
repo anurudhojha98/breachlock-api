@@ -10,5 +10,6 @@ module.exports = {
     INTERNAL_SERVER_ERR: 'Internal server error.',
     INVALID_EMAIL_PASSWORD: 'Email or password is not valid.',
     INVALID_PASSWORD: 'Password is not valid.',
-    GET_AUTOCOMPLETE_DATA_SUCCESS: 'Data found successfully.'
+    GET_AUTOCOMPLETE_DATA_SUCCESS: 'Data found successfully.',
+    JSON_PARSER_ERR: "Json parser error.",
 }

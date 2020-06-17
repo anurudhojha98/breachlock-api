@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       required: true
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    }
   }, {
     hooks: {
       beforeCreate: (user, options) => {

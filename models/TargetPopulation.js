@@ -1,9 +1,5 @@
-class TargetPopulation {
-    populationType;
-    populationAge;
-    range;
-    constructor() {
+class TargetPopulation extends PopulationType {
 
-    }
-
+    popType;
+    popol
 }

@@ -1,32 +1,46 @@
 const fs = require('fs');
 const constants = require('../common/constants');
 const path = require('../common/path');
+const models = require('../db/models');
+const commonFunctions = require('../common/commonFunctions');
 module.exports = {
-    getAutocompleteData(autocompleteType) {
+    async getAutocompleteData(autocompleteType) {
         let dataType = autocompleteType;
         let returnedData = [];
         switch (dataType) {
             case constants.SERVING_TYPE:
-                let servingTypeData = fs.readFileSync(path.SERVING_TYPE_JSON);
+                let servingTypeData = await models.Category.findAll({
+                    where: { categoryId: constants.FOUR },
+                    include: [{ model: models.CategoryItems, as: 'categoryItems' }]
+                });
                 returnedData = servingTypeData;
                 break;
-            case constants.AGE_GROUP:
-                let populationData = fs.readFileSync(path.AGE_GROUP_JSON);
+            case constants.TARGET_POPULATION:
+                let populationData = await models.Category.findAll({
+                    where: { categoryId: constants.TWO },
+                    include: [{ model: models.CategoryItems, as: 'categoryItems', categoryId: constants.TWO }]
+                });
                 returnedData = populationData;
                 break;
             case constants.FOOD_CATEGORY:
-                let foodCategoryData = fs.readFileSync(path.FOOD_CATEGORY_JSON);
+                let foodCategoryData = await models.Category.findAll({
+                    where: { categoryId: constants.ONE },
+                    include: [{ model: models.CategoryItems, as: 'categoryItems' }]
+                });
                 returnedData = foodCategoryData;
                 break;
             case constants.SERVING_SIZE:
-                let servingSizeData = fs.readFileSync(path.SERVING_SIZE_JSON);
+                let servingSizeData = await models.Category.findAll({
+                    where: { categoryId: constants.THREE },
+                    include: [{ model: models.CategoryItems, as: 'categoryItems' }]
+                })
                 returnedData = servingSizeData;
                 break;
             default:
                 returnedData = []
                 break;
         }
-        return JSON.parse(returnedData);
+        return returnedData;
     }
 }
 

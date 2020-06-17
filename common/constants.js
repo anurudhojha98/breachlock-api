@@ -6,5 +6,12 @@ module.exports = {
     SERVING_TYPE: 'servingType',
     SERVING_SIZE: 'servingSize',
     FOOD_CATEGORY: 'foodCategory',
-    AGE_GROUP: 'ageGroup'
+    AGE_GROUP: 'ageGroup',
+    TARGET_POPULATION: 'targetPopulation',
+    ONE: 1,
+    ZERO: 0,
+    TWO: 2,
+    THREE: 3,
+    FOUR: 4,
+    CATEGORY: 'category',
 }
