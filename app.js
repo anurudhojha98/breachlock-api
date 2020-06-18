@@ -37,6 +37,7 @@ models.sequelize
     });
 require("./routes/AuthRoutes")(app, router);
 require("./routes/CommonRoutes")(app, router);
+require("./routes/ProjectRoutes")(app, router);
 const options = { customCss: constant.SWAGGER_CSS };
 app.use(path.API_DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 app.listen(PORT, () => {

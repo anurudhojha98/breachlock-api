@@ -6,4 +6,5 @@ module.exports = {
     OPTION_SUCCESS_STATUS: 200,
     SECRET_KEY: 'secretkey1234#1234',
     EXPIRES_IN: '12h',
+    CLIENT_LIST_PATH: './public/data/clientList.xlsx'
 }

@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'company'
   });
   company.associate = function (models) {
-    company.hasMany(models.companyContacts, {
+    company.hasMany(models.CompanyContacts, {
       as: 'companyContacts',
       foreignKey: 'companyId',
       constraints: true

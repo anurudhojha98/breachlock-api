@@ -1,27 +1,26 @@
-const commonService = require('../services/CommonService');
 const logger = require('../logger');
 const httpStatus = require('http-status-codes');
 const msg = require('../common/messages');
+const projectService = require('../services/ProjectService');
 module.exports = {
-    autocompleteData(req, res) {
+    addProject(req, res) {
         try {
-            let queryStr = req.query;
-            commonService.getAutocompleteData(queryStr).then(data => {
-                return res.status(httpStatus.OK).json(
+            const projectDetail = req.body;
+            projectService.addProject(projectDetail).then(project => {
+                return res.status(httpStatus.CREATED).json(
                     {
                         success: true,
-                        message: msg.GET_AUTOCOMPLETE_DATA_SUCCESS,
-                        data: data
+                        message: msg.PROJECT_CREATED_SUCCESS,
+                        data: project
                     }
                 )
             }).catch(err => {
                 logger.error(err.message);
-                return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
+                return res.status(httpStatus.OK).json({
                     success: false,
-                    message: msg.ERR_IN_FETCH_DETAILS
+                    message: err.message
                 })
-            });
-
+            })
         } catch (err) {
             logger.error(err.message);
             return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({

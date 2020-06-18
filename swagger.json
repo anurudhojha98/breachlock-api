@@ -2,8 +2,8 @@
     "swagger": "2.0",
     "info": {
         "version": "1.0.0",
-        "title": "Wabatech application",
-        "description": " wabatech Application API"
+        "title": "FSSAI Application",
+        "description": " FSSAI Application API"
     },
     "host": "localhost:3000",
     "basePath": "/api",
@@ -17,24 +17,33 @@
         "application/json"
     ],
     "paths": {
-        "/candidates/profile": {
+        "/automcomplete-data": {
             "get": {
                 "tags": [
-                    "User"
+                    "Master Data"
                 ],
-                "summary": "Get user profile ",
-                "description": "Get User profile",
+                "summary": "Get category list ",
+                "description": "Get category list",
                 "parameters": [
                     {
-                        "name": "lang",
+                        "name": "type",
                         "in": "query",
                         "required": true,
                         "type": "string",
-                        "description": "Select language type",
+                        "description": "Add category type",
                         "enum": [
-                            "en",
-                            "ja"
+                            "foodCategory",
+                            "targetPopulation",
+                            "servingSize",
+                            "servingType",
+                            "customerList"
                         ]
+                    },
+                    {
+                        "name": "searchStr",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Search string"
                     }
                 ],
                 "security": [
@@ -47,9 +56,134 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "User found successfully.",
-                        "schema": {}
+                        "description": "Category found successfully.",
+                        "schema": {
+                            "$ref": "#/definitions/CategoryItemList"
+                        }
                     }
+                }
+            }
+        },
+        "/project": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Add project ",
+                "description": "Add project",
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "required": true,
+                        "type": "string",
+                        "description": "Add Project detail",
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Project created successfully.",
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "apiKey": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization",
+            "template": "Bearer {apiKey}"
+        }
+    },
+    "definitions": {
+        "Category": {
+            "properties": {
+                "categoryId": {
+                    "type": "integer"
+                },
+                "categoryType": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "CategoryItems": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "itemName": {
+                    "type": "string"
+                },
+                "isActive": {
+                    "type": "integer"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "categoryId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "CategoryItemList": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/CategoryItems"
+            }
+        },
+        "Project": {
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "required": true
+                },
+                "description": {
+                    "type": "string",
+                    "required": true
+                },
+                "companyName": {
+                    "type": "string",
+                    "required": true
+                },
+                "startDate": {
+                    "type": "string",
+                    "required": true
+                },
+                "endDate": {
+                    "type": "string",
+                    "required": true
+                },
+                "isFormulation": {
+                    "type": "boolean",
+                    "required": true
+                },
+                "isLabelValidation": {
+                    "type": "boolean",
+                    "required": true
                 }
             }
         }

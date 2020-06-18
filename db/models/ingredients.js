@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Ingredients = sequelize.define('ingredients', {
+  const Ingredients = sequelize.define('Ingredients', {
     schedule: {
       type: DataTypes.STRING
     },

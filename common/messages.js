@@ -12,4 +12,14 @@ module.exports = {
     INVALID_PASSWORD: 'Password is not valid.',
     GET_AUTOCOMPLETE_DATA_SUCCESS: 'Data found successfully.',
     JSON_PARSER_ERR: "Json parser error.",
+    EXCEL_PARSER_ERR: "EXCEL parser error.",
+    PROJECT_CREATED_SUCCESS: 'Project created successfully.',
+    EMAIL_REQUIRED: 'Email is required.',
+    PASSWORD_REQUIRED: 'Password is required.',
+    INVALID_EMAIL: 'Email is not valid.',
+    INVALID_PASSWORD: 'Password is not valid.',
+    PASSWORD_MORE_CHAR: 'Password should be more than 8 char.',
+    REQUIRED_FIELD: 'This field is required.',
+    QUERY_PARAM_REQUIRED: 'This query param is required.'
+
 }

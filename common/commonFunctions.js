@@ -6,6 +6,7 @@ const fs = require('fs');
 const logger = require("../logger");
 const constants = require("../common/constants");
 const msg = require('../common/messages');
+const xlsx = require('node-xlsx');
 module.exports = {
   generateToken(user) {
     let payload = { id: user.id };
@@ -72,8 +73,32 @@ module.exports = {
       parsedJson = JSON.parse(val);
     } catch (err) {
       logger.log(err);
-      console.log(msg.JSON_PARSER_ERR)
+      throw new Error(msg.JSON_PARSER_ERR)
     }
     return parsedJson;
+  },
+  readXlsxFile(filePath) {
+    let workSheetsFromFile;
+    try {
+      workSheetsFromFile = xlsx.parse(filePath);
+    } catch (err) {
+      logger.log(err);
+      throw new Error(msg.EXCEL_PARSER_ERR);
+    }
+    return workSheetsFromFile;
+  },
+  getClientListFromFile() {
+    let clientList = [];
+    let workSheetsFromFile = this.readXlsxFile(config.CLIENT_LIST_PATH);
+    let workSheetData = workSheetsFromFile[0].data;
+    let tempArr = [];
+    workSheetData.forEach((data, index) => {
+      if (index > 0 && !tempArr.includes(data[2])) {
+        clientList.push({ business_entity_name: data[2] });
+        tempArr.push(data[2]);
+      }
+    })
+    console.log(clientList)
+    return clientList;
   }
 };
